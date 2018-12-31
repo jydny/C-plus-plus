@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <fstream>
+using namespace std;
+
+void sumDigits(string str, int &digits){
+  for(int i=0; i<str.length(); i++){
+        if(isdigit(str.at(i))){ //check if element is num
+          digits += static_cast<int>(str.at(i))-48;
+    }
+  }
+}
+
+string sumChars(string str, string &chars){
+    for(int i=0; i<str.length(); i++){
+      if(isalpha(str.at(i))){ //check if element is char
+        chars += str.at(i);
+    }
+  }
+}
+
+int main(){
+
+  string str = "5,3,B,1,8,c,5,E,6";
+  int digits = 0;
+  string chars;
+
+  sumDigits(str, digits);
+  cout << "Sum of digits: ";
+  cout << digits << endl;
+
+  sumChars(str, chars);
+  cout << "Sum of chars: ";
+  cout << chars << endl;
+
+  return 0;
+}
