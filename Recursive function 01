@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+void getProduct(int min, int max, int& product){
+  if(min <= max)
+  {
+    product = product * min;
+    getProduct(min+1,max,product);
+  }
+}
+
+int main(){
+  int firstNum;
+  int secondNum;
+  int product = 1;
+
+  do{
+    cout << "Enter the minimum and maximum of the range (between 20 and 40): ";
+    cin >> firstNum >> secondNum;
+
+    if((firstNum<20) || (firstNum>40) || (secondNum<20) || (secondNum>40) || (firstNum>=secondNum))
+      cout << "Invalde input" << endl;
+
+  }while((firstNum<20) || (firstNum>40) || (secondNum<20) || (secondNum>40) || (firstNum>=secondNum));
+
+  cout << "The product of " <<  firstNum << " and "  << secondNum << " = ";
+  getProduct(firstNum, secondNum, product);
+  cout << product;
+  cout << endl;
+
+return 0;
+}
